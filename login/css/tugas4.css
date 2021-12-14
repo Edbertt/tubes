@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+    h1{
+        font-family: 'Anton', sans-serif;
+        font-size: 50px;
+    }
+    .valorant{
+        font-family: Valorant;
+        font-size: 70px;
+    }
+@media only screen and (max-width: 770px) {
+    .btn-primary , .btn-outline-success{
+        margin-top: 10px;
+        margin-left: 0 !important;
+        /*width:max-content;*/
+    }
+    .valorant{
+        font-size: 50px;
+        }
+    .col-md-7.order-md-2{
+        background-color: rgb(29, 29, 29);
+        }
+}
+/* .featurette-divider {
+          margin: 5rem 0; /* Space out the Bootstrap <hr> more 
+        }*/
+
+.col-lg-4{
+    text-align: center;
+}
+h2 {
+    font-weight: 400;
+}
+.col-lg-4.mr-1{
+    margin-left: 120px;  
+}
+@font-face {
+    font-family: Valorant;
+    src: url(Valorant\ Font.ttf);
+}
+body{
+    background-color: wheat;
+}
