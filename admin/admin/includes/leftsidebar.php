@@ -11,7 +11,7 @@
                          
                             </li>
   <li class="has_sub">
-                                <a href="manage-subadmins.php" class="waves-effect"><i class="fas fa-users"></i> <span> Manage Akun </span></a>
+                                <a href="manageakun.php" class="waves-effect"><i class="fas fa-users"></i> <span> Manage Akun </span></a>
                                 
                             </li>               
 

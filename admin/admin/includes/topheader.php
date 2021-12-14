@@ -2,7 +2,7 @@
 
 <!-- LOGO -->
 <div class="topbar-left">
-    <a href="../../test/user.php" class="logo"><span style="color:#B8E4F0;">Alam Indonesia</span><i class="mdi mdi-layers"></i></a>
+    <a href="../../user.php" class="logo"><span style="color:#B8E4F0;">Alam Indonesia</span><i class="mdi mdi-layers"></i></a>
     <!-- Image logo -->
     <!--<a href="index.html" class="logo">-->
         <!--<span>-->
