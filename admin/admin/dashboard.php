@@ -2,22 +2,23 @@
 session_start();
 include('../../includes/koneksi.php');
 error_reporting(0);
-if(strlen($_SESSION['username'])==0)
-  { 
-header('location:../../login/login.php');
-}
-else{
-    ?>
-<!DOCTYPE html>
-<html lang="en">
+if (strlen($_SESSION['username']) == 0) {
+    header('location:../../login/login.php');
+} elseif ($_SESSION['userType'] == 0) {
+    header('location:../../user.php');
+} else {
+?>
+    <!DOCTYPE html>
+    <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
         <!-- App title -->
-        <title>News Portal | Dashboard</title>
-		<link rel="stylesheet" href="../plugins/morris/morris.css">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="../plugins/morris/morris.css">
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -28,8 +29,10 @@ else{
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
         <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
+        <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
+        <link rel="shortcut icon" href="../../assets/images/icon.jpg" type="image/x-icon">
+
 
     </head>
 
@@ -47,23 +50,23 @@ else{
                     <a href="index.html" class="logo"><span>NP<span>Admin</span></span><i class="mdi mdi-layers"></i></a>
                     <!-- Image logo -->
                     <!--<a href="index.html" class="logo">-->
-                        <!--<span>-->
-                            <!--<img src="assets/images/logo.png" alt="" height="30">-->
-                        <!--</span>-->
-                        <!--<i>-->
-                            <!--<img src="assets/images/logo_sm.png" alt="" height="28">-->
-                        <!--</i>-->
+                    <!--<span>-->
+                    <!--<img src="assets/images/logo.png" alt="" height="30">-->
+                    <!--</span>-->
+                    <!--<i>-->
+                    <!--<img src="assets/images/logo_sm.png" alt="" height="28">-->
+                    <!--</i>-->
                     <!--</a>-->
                 </div>
 
                 <!-- Button mobile view to collapse sidebar menu -->
-            <?php include('includes/topheader.php');?>
+                <?php include('includes/topheader.php'); ?>
             </div>
             <!-- Top Bar End -->
 
 
             <!-- ========== Left Sidebar Start ========== -->
-    <?php include('includes/leftsidebar.php');?>
+            <?php include('includes/leftsidebar.php'); ?>
             <!-- Left Sidebar End -->
 
 
@@ -76,88 +79,89 @@ else{
                 <div class="content">
                     <div class="container">
                         <div class="row">
-							<div class="col-xs-12">
-								<div class="page-title-box">
+                            <div class="col-xs-12">
+                                <div class="page-title-box">
                                     <h4 class="page-title">Dashboard</h4>
                                     <div class="clearfix"></div>
                                 </div>
-							</div>
-						</div>
+                            </div>
+                        </div>
                         <!-- end row -->
 
                         <h1 align="center" style="font-size:50px;">
-                        <script type='text/javascript'>
-						var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-						var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-						var date = new Date();
-						var day = date.getDate();
-						var month = date.getMonth();
-						var thisDay = date.getDay(),
-							thisDay = myDays[thisDay];
-						var yy = date.getYear();
-						var year = (yy < 1000) ? yy + 1900 : yy;
-						document.write(thisDay + ', ' + day + ' ' + months[month] + ' ' + year);
-                        </script>		
+                            <script type='text/javascript'>
+                                var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+                                var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                                var date = new Date();
+                                var day = date.getDate();
+                                var month = date.getMonth();
+                                var thisDay = date.getDay(),
+                                    thisDay = myDays[thisDay];
+                                var yy = date.getYear();
+                                var year = (yy < 1000) ? yy + 1900 : yy;
+                                document.write(thisDay + ', ' + day + ' ' + months[month] + ' ' + year);
+                            </script>
                         </h1>
 
                         <div class="row">
-<a href="manage-categories.php">
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
-                                    <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
-                                    <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Kategori</p>
-<?php $query=mysqli_query($con,"select * from kategori where Is_Active=1");
-$countcat=mysqli_num_rows($query);
-?>
+                            <a href="manage-categories.php">
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <div class="card-box widget-box-one">
+                                        <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
+                                        <div class="wigdet-one-content">
+                                            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Kategori</p>
+                                            <?php $query = mysqli_query($con, "select * from kategori where Is_Active=1");
+                                            $countcat = mysqli_num_rows($query);
+                                            ?>
 
-                                        <h2><?php echo htmlentities($countcat);?> <small></small></h2>
-                                    
+                                            <h2><?php echo htmlentities($countcat); ?> <small></small></h2>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div></a><!-- end col -->
+                            </a><!-- end col -->
 
-     <a href="manage-posts.php">                       
-        <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
-                                    <i class="mdi mdi-layers widget-one-icon"></i>
-                                    <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Jumlah Berita</p>
-<?php $query=mysqli_query($con,"select * from berita where Is_Active=1");
-$countposts=mysqli_num_rows($query);
-?>
-                                        <h2><?php echo htmlentities($countposts);?> <small></small></h2>
-                              
+                            <a href="manage-posts.php">
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <div class="card-box widget-box-one">
+                                        <i class="mdi mdi-layers widget-one-icon"></i>
+                                        <div class="wigdet-one-content">
+                                            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Jumlah Berita</p>
+                                            <?php $query = mysqli_query($con, "select * from berita where Is_Active=1");
+                                            $countposts = mysqli_num_rows($query);
+                                            ?>
+                                            <h2><?php echo htmlentities($countposts); ?> <small></small></h2>
+
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- end col -->
-</a>
+                                </div><!-- end col -->
+                            </a>
 
 
-<a href="unapprove-comment.php">                       
-        <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
-                                    <i class="mdi mdi-layers widget-one-icon"></i>
-                                    <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Pending comments">Pending Komentar</p>
-<?php $query=mysqli_query($con,"select * from komentar where status=0");
-$countposts=mysqli_num_rows($query);
-?>
-                                        <h2><?php echo htmlentities($countposts);?> <small></small></h2>
-                              
+                            <a href="unapprove-comment.php">
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <div class="card-box widget-box-one">
+                                        <i class="mdi mdi-layers widget-one-icon"></i>
+                                        <div class="wigdet-one-content">
+                                            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Pending comments">Pending Komentar</p>
+                                            <?php $query = mysqli_query($con, "select * from komentar where status=0");
+                                            $countposts = mysqli_num_rows($query);
+                                            ?>
+                                            <h2><?php echo htmlentities($countposts); ?> <small></small></h2>
+
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- end col -->
-</a>                
-                  
+                                </div><!-- end col -->
+                            </a>
+
                         </div>
                         <!-- end row -->
-   
+
 
                     </div> <!-- container -->
 
                 </div> <!-- content -->
-<?php include('includes/footer.php');?>
+                <?php include('includes/footer.php'); ?>
 
             </div>
 
@@ -180,7 +184,7 @@ $countposts=mysqli_num_rows($query);
                             <p class="text-muted m-b-0"><small>Do you need them?</small></p>
                         </div>
                         <div class="col-xs-4 text-right">
-                            <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small"/>
+                            <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small" />
                         </div>
                     </div>
 
@@ -190,7 +194,7 @@ $countposts=mysqli_num_rows($query);
                             <p class="m-b-0 text-muted"><small>Enable/Disable access</small></p>
                         </div>
                         <div class="col-xs-4 text-right">
-                            <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small"/>
+                            <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small" />
                         </div>
                     </div>
 
@@ -200,7 +204,7 @@ $countposts=mysqli_num_rows($query);
                             <p class="m-b-0 text-muted"><small>Keep up to date</small></p>
                         </div>
                         <div class="col-xs-4 text-right">
-                            <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small"/>
+                            <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small" />
                         </div>
                     </div>
 
@@ -210,7 +214,7 @@ $countposts=mysqli_num_rows($query);
                             <p class="m-b-0 text-muted"><small>Show your status to all</small></p>
                         </div>
                         <div class="col-xs-4 text-right">
-                            <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small"/>
+                            <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small" />
                         </div>
                     </div>
                 </div>
@@ -242,8 +246,8 @@ $countposts=mysqli_num_rows($query);
         <script src="../plugins/counterup/jquery.counterup.min.js"></script>
 
         <!--Morris Chart-->
-		<script src="../plugins/morris/morris.min.js"></script>
-		<script src="../plugins/raphael/raphael-min.js"></script>
+        <script src="../plugins/morris/morris.min.js"></script>
+        <script src="../plugins/raphael/raphael-min.js"></script>
 
         <!-- Dashboard init -->
         <script src="assets/pages/jquery.dashboard.js"></script>
@@ -253,5 +257,6 @@ $countposts=mysqli_num_rows($query);
         <script src="assets/js/jquery.app.js"></script>
 
     </body>
-</html>
+
+    </html>
 <?php } ?>
