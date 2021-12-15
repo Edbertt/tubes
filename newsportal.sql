@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2021 at 05:23 PM
+-- Generation Time: Dec 15, 2021 at 04:12 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -20,6 +20,41 @@ SET time_zone = "+00:00";
 --
 -- Database: `newsportal`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `akun`
+--
+
+CREATE TABLE `akun` (
+  `id` int(11) NOT NULL,
+  `nama_depan` varchar(50) NOT NULL,
+  `nama_belakang` varchar(50) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `no_hp` varchar(15) NOT NULL,
+  `userType` int(11) DEFAULT NULL,
+  `code` int(10) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `CreationDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `akun`
+--
+
+INSERT INTO `akun` (`id`, `nama_depan`, `nama_belakang`, `username`, `password`, `email`, `no_hp`, `userType`, `code`, `status`, `CreationDate`, `UpdationDate`) VALUES
+(7, 'Edbert', 'Xie', 'Edbert', 'e13dd027be0f2152ce387ac0ea83d863', 'edbert1xie@gmail.com', '082185023344', 1, 0, 'verified', '2021-12-02 16:04:17', '2021-12-11 14:07:49'),
+(11, 'test', 'testing', 'testing123', 'e10adc3949ba59abbe56e057f20f883e', 'raincrew132@gmail.com', '08897481293', 0, 0, 'verified', '2021-12-11 14:10:58', '2021-12-11 14:12:01'),
+(12, 'Raihan', 'Jamilah', 'raihanhsb', '5247b883aba050d98202789ea9e35df6', 'raihanjamillah0404@gmail.com', '089656452347', 1, 0, 'verified', '2021-12-13 14:47:36', '2021-12-14 15:46:33'),
+(14, 'Imam', 'Hartis', 'imamhartis', 'e10adc3949ba59abbe56e057f20f883e', 'ggmukmin@gmail.com', '0999999999999', 1, 0, 'verified', '2021-12-14 15:53:26', '2021-12-14 15:54:44'),
+(15, 'Yohana', 'Nainggolan', 'yohananainggolan', 'e10adc3949ba59abbe56e057f20f883e', 'nainggolanyohana30@gmail.com', '0888888888888', 1, 0, 'verified', '2021-12-14 15:55:24', '2021-12-14 15:55:57'),
+(16, 'Maria', 'Natio', 'marianatio', 'e10adc3949ba59abbe56e057f20f883e', 'natiomaria@gmail.com', '077777777777', 1, 0, 'verified', '2021-12-14 15:56:26', '2021-12-14 16:00:19'),
+(17, 'Rizkyandi', 'Efrata', 'rizkiefrata', 'e10adc3949ba59abbe56e057f20f883e', 'rizky7efrata@gmail.com', '055555555555', 1, 0, 'verified', '2021-12-14 15:57:56', '2021-12-14 16:00:23'),
+(18, 'Geboy', 'Donny', 'geboydonny', 'e10adc3949ba59abbe56e057f20f883e', 'geboydonny27@gmail.com', '044444444444', 1, 0, 'verified', '2021-12-14 15:59:13', '2021-12-14 16:00:26');
 
 -- --------------------------------------------------------
 
@@ -61,9 +96,69 @@ INSERT INTO `berita` (`id`, `judul`, `CategoryId`, `ringkasan`, `isiBerita`, `Po
 INSERT INTO `berita` (`id`, `judul`, `CategoryId`, `ringkasan`, `isiBerita`, `PostingDate`, `UpdationDate`, `Is_Active`, `PostUrl`, `PostImage`, `postedBy`, `lastUpdatedBy`) VALUES
 (42, 'Taman Nasional Pulau Komodo', 13, '<p style=\"-webkit-font-smoothing: antialiased; margin-bottom: 20px; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif;\">Taman Nasional Komodo terletak di daerah administrasi Provinsi Nusa Tenggara Timur Taman nasional ini terdiri atas tiga pulau besar Pulau Komodo, Pulau Rinca, dan Pulau Padar serta beberapa pulau kecil lainnya.</p>', '<h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Taman Nasional Komodo terletak di daerah administrasi Provinsi Nusa Tenggara Timur. Taman nasional ini terdiri atas tiga pulau besar Pulau Komodo, Pulau Rinca, dan Pulau Padar serta beberapa pulau kecil lainnya. Wilayah darat taman nasional ini 603 km² dan wilayah total adalah 1817 km². Pada tahun 1980, taman nasional ini didirikan untuk melindungi komodo dan habitatnya. Di taman nasional ini terdapat 277 spesies hewan yang merupakan perpaduan hewan yang berasal dari Asia dan Australia.</h6><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"margin-left: 25px;\"><br style=\"-webkit-font-smoothing: antialiased; color: rgb(33, 37, 41); font-family: Poppins, sans-serif; font-size: 16px;\"></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Daya tarik utama Taman Nasional Komodo yaitu adanya reptil raksasa purba Biawak Komodo (Varanus komodoensis), tetapi keaslian dan kekhasan alamnya, khususnya panorama Savana dan Panorama bawah laut, merupakan daya tarik pendukung yang potensial. Wisata bahari misalnya, memancing, snorkeling, diving, kano, bersampan. Sedangkan di daratan, potensi wisata alam yang bisa dilakukan adalah pengamatan satwa, hiking, dan camping. Mengunjungi Taman Nasional Komodo dan menikmati pemandangan alam yang sangat menawan merupakan pengalaman yang tidak akan pernah terlupakan.</h6><p style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Taman Nasional Komodo terletak tepat di jantung segitiga terumbu karang Asia Pasifik, yang menjadikannya sebagai salah satu surga bawah laut terkaya di dunia. Di kawasan ini, setidaknya terdapat 100 situs menyelam kelas dunia yang selalu menjadi incaran para penyelam, ilmuwan, maupun fotografer profesional dari seluruh penjuru dunia. Dengan hamparan warna-warni terumbu karang, ragam spesies ikan yang menghuni kawasan ini, termasuk daya tarik utamanya yakni berinteraksi secara langsung dengan ikan pari manta, ikan hiu, dan dugong.</h6><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px;\"></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Jika ingin melihat atraksi yang cukup lengkap, maka bisa ditemukan di Pulau Rinca. Pulau yang satu ini jadi incaran para wisatawan, sebab dapat melakukan berbagai aktivitas sekaligus, seperti menyusuri hutan bakau yang masih alami, melihat satwa liar seperti komodo, rusa timor, kerbau liar, monyet ekor panjang, dan masih banyak lagi di hamparan padang savana. Taman Nasional Komodo itu memberikanmu wisata yang lengkap, mulai dari trekking ke bukit, melihat satwa liar, bersantai di pantai, hingga menyelami keindahan bawah laut.</h6><p style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br></p><h3 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1.75rem; margin-left: 25px;\"><span style=\"-webkit-font-smoothing: antialiased; font-weight: bolder;\">Sejarah</span></h3><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px;\"><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px;\"></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Taman Nasional Komodo adalah salah satu taman nasional tertua di Indonesia. Taman Nasional ini berdiri pada tanggal 6 Maret 1980. Taman Nasional Komodo memiliki luas wilayah total sebesar 173.000 Ha yang meliputi wilayah terestrial maupun perairan. Taman Nasional Komodo didirikan dengan tujuan untuk menjaga kelestarian hidup satwa biawak komodo (Varanus komodoensis) bersama dengan alam sekitarnya. Berdasarkan Data Taman Nasional Komodo tahun 2018, terdapat kurang lebih 2.872 ekor biawak komodo yang hidup di dalam kawasan.</h6><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px;\"></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Taman Nasional Komodo banyak meraih gelar internasional, diantaranya: Man and Biosphere Reserve (1977), World Heritage Site (1991), dan The New 7 Wonder of Nature (2011). Pemberian gelar tersebut diharapkan dapat meningkatkan branding position dan membantu meningkatkan kunjungan wisatawan ke Taman Nasional Komodo.</h6><p style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br></p><h3 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1.75rem; margin-left: 25px;\"><span style=\"-webkit-font-smoothing: antialiased; font-weight: bolder;\">Harga Tiket Masuk</span></h3><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px;\"><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px;\"></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Untuk memasuki Taman Nasional Komodo setiap orang akan dikenai biaya masuk sesuai dengan kegiatan dilakukan. Di Komodo merupakan salah satu Taman Nasional dengan jenis tiket masuk yang terbanyak di Indonesia, ada tiket masuk, tiket trekking, tiket pengamatan hewan liar, tiket trekking, tiket snorkelling, tiket kapal hingga ranger fee untuk trekking di Pulau Komodo dan Pulau Rinca. Di sini kita akan jelaskan satu-persatu biaya tiket tersebut.</h6><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; margin-left: 25px;\"><span style=\"-webkit-font-smoothing: antialiased; font-weight: bolder;\">Biaya masuk pengunjung Taman Nasional Komodo</span></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; font-size: 14px; color: rgb(102, 102, 102); line-height: 30px; margin-left: 25px;\"></p><p style=\"margin-left: 25px;\"></p><h6 style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Untuk tiket masuk Taman Nasional Komodo dibedakan untuk Warga Negara Indonesia(WNI) dan Warga Negara Asing (WNA) serta juga berbeda ketika datang saat weekend dan weekday. Tiket masuk untuk WNI saat Weekday adalah Rp. 5.000 Dan Weekend adalah Rp. 7.500. Sedangkan untuk WNA adalah Rp. 150.000 ketika weekday dan Rp. 225.000 ketika weekend.</h6><p style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><br></p><p style=\"-webkit-font-smoothing: antialiased; margin-left: 25px;\"><span style=\"-webkit-font-smoothing: antialiased; font-weight: bolder;\">Biaya snorkelling</span></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Salah satu aktifitas wisata yang dilakukan di Taman Nasional Komodo adlah snorkelling, ada banyak spot snorkelling yang bisa kita jelajahi seperti di Pink beach, Long beach, Manta Point, Siaba, Taka Makassar, Gili Lawa dan lain lain. Untuk melakukan aktifitas ini kita dikenakan biaya tiket masuk sebesar Rp. 15.000 per orang.</h6><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px;\"></p><p style=\"-webkit-font-smoothing: antialiased; margin-left: 25px;\"><span style=\"-webkit-font-smoothing: antialiased; font-weight: bolder;\">Biaya pengamatan hewan liar</span></p><p style=\"margin-left: 25px;\"></p><h6 style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Ada dua Pulau dimana kita bisa bertemu dengan Komodo, yaitu di Pulau Komodo dan Pulau Rinca. Untuk melihat kadal raksasa ini kita dikenakan biaya tiket masuk sebesar Rp. 10.000 per orang</h6><p style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><br></p><p style=\"-webkit-font-smoothing: antialiased; margin-left: 25px;\"><span style=\"-webkit-font-smoothing: antialiased; font-weight: bolder;\">Biaya trekking</span></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Tak hanya terkenal dengan bawah lautnya, landscape pulau-pulau kecil yang tersebar di Taman Nasional Komodo juga menarik untuk dijelajahi seperti Pulau Padar, Pulau Siaba, Pulau Gili Lawa dan lain lain. Untuk menikamtinya kita bisa trekking menuju puncak bukitnya dan biaya tiket masuk yang dikenakan adalah Rp. 5.000 per orang.</h6><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px;\"></p><p style=\"-webkit-font-smoothing: antialiased; margin-left: 25px;\"><span style=\"-webkit-font-smoothing: antialiased; font-weight: bolder;\">Biaya Memancing dan Canoing</span></p><p style=\"margin-left: 25px;\"></p><h6 style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Bagi pengunjung dengan minak khusus seperti memancing dan berkeliling menggunakan perahu kecil seperti kayak dan kano juga ada biaya khusus yang harus dibayarkan, yaitu Rp. 25.000 per orang</h6><p style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><br></p><p style=\"-webkit-font-smoothing: antialiased; margin-left: 25px;\"><span style=\"-webkit-font-smoothing: antialiased; font-weight: bolder;\">Biaya Ranger</span></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Ketika trekking untuk bertemu dengan Komodo baik itu di Pulau Rinca dan Pulau Komodo kita harus didampingi oleh pemandu khusus dari pihak Taman Nasional atau yang sering disebut dengan ranger. Biaya tiket masuk untuk sekali jalan untuk 5 orang adalah Rp. 80.000.</h6><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px;\"></p><p style=\"-webkit-font-smoothing: antialiased; margin-left: 25px;\"><span style=\"-webkit-font-smoothing: antialiased; font-weight: bolder;\">Biaya masuk kapal</span></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Kapal wisata yang memasuki wilayak perairan Taman Nasional Komodo juga dikenakan biaya tiket masuk. Biayanya bebeda sesuai dengan jenis kapal yang digunakan. Untuk kapal kecil dan standard biayanya Rp. 100.000 per hari, kapal yang lebih besar seperti kapal phinisi Rp. 150.000 per hari dan yang paling mahal adalah untuk kapal cruise yang biasanya membawa ratusan penumpang langsung dari luar negeri hingga Rp. 50.000.000 per hari</h6><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><p style=\"-webkit-font-smoothing: antialiased; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px;\"></p><p style=\"-webkit-font-smoothing: antialiased; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; margin-left: 25px;\"></p><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Ada juga biaya untuk wisata minak khusus seperti trekking malam (Night trekking) dan pengamatan burung (Birdwatching) yaitu Rp. 750.000 per orang. Untuk yang membawa drone juga dikenakan biaya khusus yaitu Rp. 1.000.000 per hari. Jadi total yang harus dibayarkan perharinya adalah sekitar Rp. 171.000 per orang untuk WNI dan Rp. 391.000 per orang berdasarkan harga untuk 5 orang dan ketika weekday.</h6><p style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"><br></p><p style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\"></p><p style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-size: 14px; color: rgb(102, 102, 102); line-height: 30px; font-family: Poppins, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 25px;\"></p><p style=\"margin-left: 25px;\"></p><h3 style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1.75rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><b style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; font-weight: bolder;\">Makanan Khas Berupa Cemilan</b></h3><h3 style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1.75rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><b style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; font-weight: bolder;\"><br></b></h3><h3 style=\"text-align: center; box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1.75rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><img src=\"https://akcdn.detik.net.id/community/media/visual/2020/10/26/5-makanan-khas-ntt-yang-berupa-camilan-enak-di-pulau-komodo-3.jpeg?w=1080\" style=\"width: 50%;\"><b style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; font-weight: bolder;\"><br></b></h3><h3 style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1.75rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><b style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; font-weight: bolder;\"><br></b></h3><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Roti kompiang atau kompiang longa adalah makanan khas NTT populer dari Pulau Komodo. Nama \"longa\" dalam bahasa Manggarai Flores berarti \"wijen\". Hal ini menandakan ciri khas roti kompiang dimana bagian atasnya diberi banyak taburan wijen. Untuk rotinya sendiri, berbentuk bulat atau oval dengan tekstur agak keras. Konon roti kompiang dulunya merupakan bekal populer para tentara. Di bagian tengahnya ada lubang kecil sehingga roti ini bisa dirangkai dan dikalungkan di leher. Dengan begini tentara akan mudah makan roti kapanpun dan dimanapun. Hanya saja beberapa roti kompiang kini sudah tidak memiliki lubang kecil di tengahnya.</h6><h3 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1.75rem; margin-left: 25px;\"><span style=\"-webkit-font-smoothing: antialiased; font-weight: bolder;\"><p style=\"-webkit-font-smoothing: antialiased; font-size: 14px; color: rgb(102, 102, 102); line-height: 30px; font-weight: 400; margin-left: 25px;\"></p><br style=\"-webkit-font-smoothing: antialiased; font-size: 16px; font-weight: 400;\"><p style=\"-webkit-font-smoothing: antialiased; font-size: 14px; color: rgb(102, 102, 102); line-height: 30px; font-weight: 400; margin-left: 25px;\"></p></span></h3><h6 style=\"-webkit-font-smoothing: antialiased; margin-top: 0px; margin-bottom: 0px; font-family: Poppins, sans-serif; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1rem; margin-left: 25px;\">Untuk membeli Kompiang tidaklah sulit karena bisa ditemukan di berbagai pusat oleh-oleh atau pasar tradisional dan salah satunya yaitu Toko Roti &amp; Kue Theresa di pertigaaan Pede-Labuan Bajo. Di sana, pengunjung dapat memilih berbagai kompiang sesuai selera. Harganya tergolong murah hanya Rp. 1.000/biji. Daerah lainnya yang bisa dikunjungi untuk membeli Roti Kompiang adalah jalan Wae Mata.</h6><h3 style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0px 0px 0px 25px; font-family: Poppins, sans-serif; font-weight: 500; line-height: 1.2; color: rgb(33, 37, 41); font-size: 1.75rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(247, 247, 247); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><b style=\"box-sizing: border-box; -webkit-font-smoothing: antialiased; font-weight: bolder;\"><br></b></h3>', '2021-12-12 17:29:57', '2021-12-14 16:22:56', 1, 'Taman-Nasional-Pulau-Komodo', '625e363ce34c1a4dfa6c5053053490b2.jpg', 'raihanhsb', 'Edbert');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `id` int(11) NOT NULL,
+  `CategoryName` varchar(200) DEFAULT NULL,
+  `Description` mediumtext DEFAULT NULL,
+  `PostingDate` timestamp NULL DEFAULT current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `Is_Active` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id`, `CategoryName`, `Description`, `PostingDate`, `UpdationDate`, `Is_Active`) VALUES
+(9, 'Pulau Sumatera', 'Wisata Pulau Sumatera', '2021-12-03 09:12:43', NULL, 1),
+(11, 'Pulau Jawa', 'Wisata Pulau Jawa', '2021-12-03 09:20:48', NULL, 1),
+(13, 'NTT dan NTB', 'Wisata di NTT dan NTB', '2021-12-03 12:55:31', '2021-12-08 14:40:53', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `komentar`
+--
+
+CREATE TABLE `komentar` (
+  `id` int(11) NOT NULL,
+  `postId` int(11) DEFAULT NULL,
+  `nama_depan` varchar(120) DEFAULT NULL,
+  `nama_belakang` varchar(40) NOT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `comment` mediumtext DEFAULT NULL,
+  `postingDate` timestamp NULL DEFAULT current_timestamp(),
+  `status` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `komentar`
+--
+
+INSERT INTO `komentar` (`id`, `postId`, `nama_depan`, `nama_belakang`, `email`, `comment`, `postingDate`, `status`) VALUES
+(6, 33, 'Edbert', 'Xie', 'edbert1xie@gmail.com', 'testing\r\n', '2021-12-11 15:44:13', 1),
+(8, 33, 'test', 'testing', 'raincrew132@gmail.com', 'halo\r\n', '2021-12-12 11:29:12', 1),
+(9, 36, 'Edbert', 'Xie', 'edbert1xie@gmail.com', 'halo gaes', '2021-12-12 14:37:17', 1),
+(10, 36, 'Edbert', 'Xie', 'edbert1xie@gmail.com', 'halo semuanya', '2021-12-13 14:32:58', 1),
+(11, 38, 'Edbert', 'Xie', 'edbert1xie@gmail.com', 'mantep jiwa', '2021-12-13 14:35:51', 1),
+(13, 36, 'Edbert', 'Xie', 'edbert1xie@gmail.com', 'testing', '2021-12-13 15:14:53', 0);
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `akun`
+--
+ALTER TABLE `akun`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `AdminUserName` (`username`);
 
 --
 -- Indexes for table `berita`
@@ -75,14 +170,46 @@ ALTER TABLE `berita`
   ADD KEY `subadmin` (`postedBy`);
 
 --
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`),
+  ADD KEY `postId` (`postId`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `akun`
+--
+ALTER TABLE `akun`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `komentar`
+--
+ALTER TABLE `komentar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -94,6 +221,12 @@ ALTER TABLE `berita`
 ALTER TABLE `berita`
   ADD CONSTRAINT `postcatid` FOREIGN KEY (`CategoryId`) REFERENCES `kategori` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `subadmin` FOREIGN KEY (`postedBy`) REFERENCES `akun` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD CONSTRAINT `pid` FOREIGN KEY (`postId`) REFERENCES `berita` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
