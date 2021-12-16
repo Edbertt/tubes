@@ -208,7 +208,9 @@
           <div class="col-md-12">
             <div class="contact-form" style="border-radius:0px 0px 0px 0px;">
               <form id="contact" action="" method="post">
+                <p hidden>
               <input hidden type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']); ?>" />
+                </p>
                 <div class="row"> 
                   <div class="col-lg-12">
                     <fieldset>
