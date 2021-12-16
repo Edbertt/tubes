@@ -23,7 +23,7 @@ if($email == false){
                     <h2 class="text-center">Code Verification</h2>
                     <?php
                     if(isset($_POST['check'])){
-                        $_SESSION['info'] = "";
+                        // $_SESSION['info'] = "";
                         $otp_code = $_POST['otp'];
                         $check_code = "SELECT * FROM akun WHERE code = $otp_code";
                         $code_res = mysqli_query($con, $check_code);
@@ -50,7 +50,7 @@ if($email == false){
                     if(isset($_SESSION['info'])){
                         ?>
                         <div class="alert alert-success text-center">
-                            <?php echo $_SESSION['info']; ?>
+                            <?php echo $_SESSION['info']; unset($_SESSION['info']); ?>
                         </div>
                         <?php
                     }

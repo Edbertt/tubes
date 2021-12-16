@@ -51,37 +51,36 @@
 										$status = $row['status'];
 									}
 
-									if($user_login == $user && $pass_login == $pass && $status == 'verified')
+									if($user_login == $user && $pass_login == $pass)
 									{
-										if($clearence == 1)
+										if($status == 'verified')
 										{
-											header("Location:../admin/admin/dashboard.php");
-											$_SESSION['username'] = $user;
-											$_SESSION['nama_depan'] = $namad;
-											$_SESSION['nama_belakang'] = $namab;
-											$_SESSION['email'] = $mail;
-											$_SESSION['userType'] = $clearence;
+											if($clearence == 1)
+											{
+												header("Location:../admin/admin/dashboard.php");
+												$_SESSION['username'] = $user;
+												$_SESSION['nama_depan'] = $namad;
+												$_SESSION['nama_belakang'] = $namab;
+												$_SESSION['email'] = $mail;
+												$_SESSION['userType'] = $clearence;
+											}
+											else{
+												header("Location:../user.php");
+												$_SESSION['username'] = $user;
+												$_SESSION['nama_depan'] = $namad;
+												$_SESSION['nama_belakang'] = $namab;
+												$_SESSION['email'] = $mail;
+												$_SESSION['userType'] = $clearence;
+											}
 										}
 										else{
-											header("Location:../user.php");
-											$_SESSION['username'] = $user;
-											$_SESSION['nama_depan'] = $namad;
-											$_SESSION['nama_belakang'] = $namab;
-											$_SESSION['email'] = $mail;
-											$_SESSION['userType'] = $clearence;
+											$info = "It's look like you haven't still verify your email - $mail";
+											$_SESSION['info'] = $info;
+											header('location:user-otp.php');
 										}
 									}
-									else if($user_login == $user && $pass_login == $pass && $status == 'notverified')
-									{
-										$info = "It's look like you haven't still verify your email - $mail";
-                    					$_SESSION['info'] = $info;
-                    					header('location:user-otp.php');
-									}
-									else if(($user_login != $user || $pass_login != $pass) && $status == 'verified'){
-										$errors['email'] = "Incorrect Username or password!";
-									}
 									else{
-										$errors['email'] = "It's look like you're not yet a member! Click on the bottom link to signup.";
+										$errors['email'] = "Incorrect Username or password!";
 									}
 								}
 							?>

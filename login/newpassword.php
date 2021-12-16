@@ -23,7 +23,7 @@ if($email == false){
                     <h2 class="text-center">New Password</h2>
                     <?php 
                         if(isset($_POST['change-password'])){
-                            $_SESSION['info'] = "";
+                            // $_SESSION['info'] = "";
                             $password = $_POST['password'];
                             $cpassword = $_POST['cpassword'];
                             if($password !== $cpassword){
