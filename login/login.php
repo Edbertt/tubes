@@ -93,9 +93,10 @@
                             		foreach($errors as $showerror){
                                			echo $showerror;
                             		}
-								}
+								
                             	?>
 								</div>
+								<?php } ?>
 
 								<div class="form-group">
 									<label for="username">Username</label>
