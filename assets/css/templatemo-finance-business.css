@@ -521,6 +521,10 @@ ul.slick-dots {
 	color: #fff;
 }
 
+.request-form p {
+	color: black !important;
+}
+
 .request-form h4 {
 	font-size: 22px;
 	font-weight: 600;
