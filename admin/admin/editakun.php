@@ -47,6 +47,7 @@ if (strlen($_SESSION['username']) == 0) {
         <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
         <link rel="shortcut icon" href="../../assets/images/icon.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="../../assets/css/error.css">
 
 
     </head>
@@ -246,15 +247,15 @@ if (strlen($_SESSION['username']) == 0) {
                 rules: {
                     username: {
                         required: true,
-                        minlength: 6
+                        minlength: 5
                     },
                     namadepan: {
                         required: true,
-                        minlength: 6
+                        minlength: 3
                     },
                     namabelakang: {
                         required: true,
-                        minlength: 6
+                        minlength: 3
                     },
                     emailid: {
                         required: true,
@@ -262,28 +263,29 @@ if (strlen($_SESSION['username']) == 0) {
                     },
                     nohp: {
                         required: true,
-                        minlength: 11
+                        minlength: 9
                     }
                 },
                 messages: {
                     username: {
                         required: "Username harus diisi",
-                        minlength: "Username harus setidaknya 6 karakter"
+                        minlength: "Username harus setidaknya 5 karakter"
                     },
                     namadepan: {
                         required: "Masukan nama depan",
-                        minlength: "Nama depan harus setidaknya 6 karakter"
+                        minlength: "Nama depan harus setidaknya 3 karakter"
                     },
                     namabelakang: {
                         required: "Masukan nama belakang",
-                        minlength: "Nama belakang harus setidaknya 6 karakter"
+                        minlength: "Nama belakang harus setidaknya 3 karakter"
                     },
                     emailid: {
+                        required : "Masukkan Emailmu",
                         email: "The email should be in the format: abc@domain.tld"
                     },
                     nohp: {
                         required: "Masukan no hp",
-                        minlength: "Nomor hp harus setidaknya 11 angka"
+                        minlength: "Nomor hp harus setidaknya 9 angka"
                     },
                 }
             });
