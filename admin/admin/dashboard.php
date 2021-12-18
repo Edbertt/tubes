@@ -107,7 +107,7 @@ if (strlen($_SESSION['username']) == 0) {
                             <a href="manage-categories.php">
                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                     <div class="card-box widget-box-one">
-                                        <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
+                                        <!-- <i class="mdi mdi-chart-areaspline widget-one-icon"></i> -->
                                         <div class="wigdet-one-content">
                                             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Kategori</p>
                                             <?php $query = mysqli_query($con, "select * from kategori where Is_Active=1");
@@ -124,7 +124,7 @@ if (strlen($_SESSION['username']) == 0) {
                             <a href="manage-posts.php">
                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                     <div class="card-box widget-box-one">
-                                        <i class="mdi mdi-layers widget-one-icon"></i>
+                                        <!-- <i class="mdi mdi-layers widget-one-icon"></i> -->
                                         <div class="wigdet-one-content">
                                             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Jumlah Berita</p>
                                             <?php $query = mysqli_query($con, "select * from berita where Is_Active=1");
@@ -141,7 +141,7 @@ if (strlen($_SESSION['username']) == 0) {
                             <a href="unapprove-comment.php">
                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                     <div class="card-box widget-box-one">
-                                        <i class="mdi mdi-layers widget-one-icon"></i>
+                                        <!-- <i class="mdi mdi-layers widget-one-icon"></i> -->
                                         <div class="wigdet-one-content">
                                             <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Pending comments">Pending Komentar</p>
                                             <?php $query = mysqli_query($con, "select * from komentar where status=0");
