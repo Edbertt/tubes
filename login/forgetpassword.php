@@ -6,7 +6,7 @@
     <title>Forgot Password</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-	<link rel="shortcut icon" href="../assets/images/icon.jpg" type="image/x-icon">
+	<link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
 
 </head>
 <body>

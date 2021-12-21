@@ -21,7 +21,7 @@
     <title>Alam Indonesia</title>
 
     <!-- ============== Bar Icon ================= -->
-    <link rel="shortcut icon" href="assets/images/icon.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
