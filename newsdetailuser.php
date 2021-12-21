@@ -98,22 +98,27 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
-              <?php if($_SESSION['userType'] == 1){?>
+              <?php 
+                $query = mysqli_query($con, "Select * from  akun where username='".$_SESSION['username']."'");
+                while($row = mysqli_fetch_array($query)){
+              ?>
+                <?php if($_SESSION['userType'] == 1){?>
                 <li class="nav-item">
-                <a href="#" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
+                <a href="editprofile.php?said=<?php echo htmlentities($row['id']);?>" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
                 </li>
                 <li class="nav-item">
-                <a href="../admin/admin/dashboard.php" class="nav-link"> Admin Panel </a>
+                <a href="admin/admin/dashboard.php" class="nav-link"> Admin Panel </a>
                 </li>
                 <?php } ?>
                 <?php if($_SESSION['userType'] == 0){ ?>
                 <li class="nav-item">
-                  <a href="#" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
+                  <a href="editprofile.php?said=<?php echo htmlentities($row['id']);?>" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
                 </li>
                 <?php } ?>
               <li class="nav-item">
-                <a class="nav-link" href="../login/logout.php">Logout</a>
+                <a class="nav-link" href="login/logout.php">Logout</a>
               </li>
+            <?php } ?>
             </ul>
           </div>
         </div>
@@ -178,7 +183,7 @@
                 <div class="col">
                     <p style="color:#a4c639;font-size:40px;"> &nbsp; <?php echo htmlentities($row['judul']);?> </p>
                     <br>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Posting Date: <?php echo htmlentities($row['PostingDate']) ?> | Created By : <?php echo htmlentities($row['posedtBy']) ?></p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Posting Date: <?php echo htmlentities($row['PostingDate']) ?> | Created By : <?php echo htmlentities($row['postedBy']) ?></p>
                     <!-- <img src="../admin/admin/postimages/<?php echo htmlentities($row['PostImage']); ?>" alt="<?php echo htmlentities($row['judul']);?>"> -->
                     <br>
                     <br>
@@ -208,7 +213,7 @@
           <div class="col-md-12">
             <div class="contact-form" style="border-radius:0px 0px 0px 0px;">
               <form id="contact" action="" method="post">
-                <p hidden>
+              <p hidden>
               <input hidden type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']); ?>" />
                 </p>
                 <div class="row"> 
@@ -262,7 +267,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <p>Copyright &copy; 2021</p>
+            <p>Copyright &copy; 2021 - Alam Indonesia</p>
           </div>
         </div>
       </div>
