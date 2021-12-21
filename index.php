@@ -136,7 +136,7 @@
           <div class="col-md-8">
             <h4>Website bagi para traveller!!</h4>
             <p><span>INDONESIAN NATURE WEBSITE </span> merupakan portal web yang menyajikan berita dan artikel seputar tempat wisata di Indonesia.
-              Di website ini juga memberikan rekomendasi tempat kuliner disekitar tempat wisata tersebut. Semoga teman-teman semua terbantu dengan adanya website ini.</p>
+              Semoga teman-teman semua terbantu dengan adanya website ini.</p>
             <br>
             <h4>Visi</h4>
             <p>Menjadikan pesona wisata indonesia yang indah dan di kenal oleh manca negara melalui pengenalan tempat wisata pada website</p>
