@@ -72,9 +72,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
-              <?php if($_SESSION['userType'] == 1){?>
+              <?php 
+                $query = mysqli_query($con, "Select * from  akun where username='".$_SESSION['username']."'");
+                while($row = mysqli_fetch_array($query)){
+              ?>
+                <?php if($_SESSION['userType'] == 1){?>
                 <li class="nav-item">
-                <a href="#" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
+                <a href="editprofile.php?said=<?php echo htmlentities($row['id']);?>" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
                 </li>
                 <li class="nav-item">
                 <a href="admin/admin/dashboard.php" class="nav-link"> Admin Panel </a>
@@ -82,12 +86,13 @@
                 <?php } ?>
                 <?php if($_SESSION['userType'] == 0){ ?>
                 <li class="nav-item">
-                  <a href="#" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
+                  <a href="editprofile.php?said=<?php echo htmlentities($row['id']);?>" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
                 </li>
                 <?php } ?>
               <li class="nav-item">
                 <a class="nav-link" href="login/logout.php">Logout</a>
               </li>
+            <?php } ?>
             </ul>
           </div>
         </div>
@@ -160,6 +165,10 @@
       </div>
     </div>
 
+    <div class="services">
+      <div class="container">
+      <div class="row">
+
     <?php 
         if($_GET['catid']!=''){
             $_SESSION['catid']=intval($_GET['catid']);
@@ -170,26 +179,28 @@
         while($row1=mysqli_fetch_array($query1)){
     ?>
 
-    <div class="services">
-      <div class="container">
-        <div class="row">
+    
+        
           <div class="col-md-12">
             <div class="section-heading">
               <h2>Pariwisata<em> di <?php echo htmlentities($row1['CategoryName']);?></em></h2>
               <span> </span>
             </div>
           </div>
+      </div>
 
     <?php } ?>
     <?php
         
         $sql2 = "SELECT * FROM berita WHERE CategoryId = '".$_SESSION['catid']."' && Is_Active='1'";
         $query2 = mysqli_query($con,$sql2);
+        $indicator = 0;
 
         while ($row2=mysqli_fetch_array($query2)) {
-            
-    ?>
-    
+          if($indicator % 3 == 0){
+    ?>          
+          <div class="row">
+    <?php } ?>
           <div class="col-md-4">
             <div class="service-item">
               <img src="admin/admin/postimages/<?php echo htmlentities($row2['PostImage']);?>" alt="" height="210px" width="330px">
@@ -202,11 +213,13 @@
               </div>
             </div>
           </div>
-        
-      
 
-    <?php } ?>
-    </div>
+    <?php if($indicator % 3 == 2){?>
+          </div>
+          <br>
+    <?php }
+    $indicator++; } ?>
+
     </div>
     </div>
 
@@ -294,7 +307,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <p>Copyright &copy; 2021</p>
+            <p>Copyright &copy; 2021 - Alam Indonesia</p>
           </div>
         </div>
       </div>

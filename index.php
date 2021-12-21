@@ -303,7 +303,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <p>Copyright &copy; 2021</p>
+            <p>Copyright &copy; 2021 - Alam Indonesia</p>
           </div>
         </div>
       </div>

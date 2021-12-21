@@ -73,9 +73,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
+              <?php 
+                $query = mysqli_query($con, "Select * from  akun where username='".$_SESSION['username']."'");
+                while($row = mysqli_fetch_array($query)){
+              ?>
                 <?php if($_SESSION['userType'] == 1){?>
                 <li class="nav-item">
-                <a href="#" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
+                <a href="editprofile.php?said=<?php echo htmlentities($row['id']);?>" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
                 </li>
                 <li class="nav-item">
                 <a href="admin/admin/dashboard.php" class="nav-link"> Admin Panel </a>
@@ -83,13 +87,13 @@
                 <?php } ?>
                 <?php if($_SESSION['userType'] == 0){ ?>
                 <li class="nav-item">
-                  <a href="#" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
+                  <a href="editprofile.php?said=<?php echo htmlentities($row['id']);?>" class="nav-link"> <?= "Halo ";?> <?= $_SESSION['nama_depan']; ?> <?= $_SESSION['nama_belakang'];?> </a>
                 </li>
                 <?php } ?>
               <li class="nav-item">
                 <a class="nav-link" href="login/logout.php">Logout</a>
               </li>
-            
+            <?php } ?>
             </ul>
           </div>
         </div>
@@ -182,7 +186,7 @@
 
     <?php
         
-        $sql2 = "SELECT * FROM berita WHERE CategoryId = '$nid' && Is_Active='1'";
+        $sql2 = "SELECT * FROM berita WHERE CategoryId = '$nid' && Is_Active='1' LIMIT 3";
         $query2 = mysqli_query($con,$sql2);
 
         while ($row2=mysqli_fetch_array($query2)) {
@@ -314,7 +318,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <p>Copyright &copy; 2021</p>
+            <p>Copyright &copy; 2021 - Alam Indonesia</p>
           </div>
         </div>
       </div>
