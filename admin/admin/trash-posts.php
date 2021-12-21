@@ -27,8 +27,8 @@ if (strlen($_SESSION['username']) == 0) {
         $id = intval($_GET['presid']);
         $query = mysqli_query($con, "delete from  berita  where id='$id'");
         // $delmsg="Berita dihapus permanen";
-        unset($_SESSION['suksesHapus']);
-        $_SESSION['suksesHapus'] = 'Berita berhasil direstore';
+        unset($_SESSION['gagalList']);
+        $_SESSION['gagalList'] = 'Berita dihapus permanen';
         // echo "<script type='text/javascript'> document.location = 'trash-posts.php'; </script>";
     }
 
@@ -122,8 +122,12 @@ if (strlen($_SESSION['username']) == 0) {
                                         <?= $_SESSION['suksesHapus'];
                                         unset($_SESSION['suksesHapus']); ?>
                                     </div>
-                                <?php } ?>
-
+                                <?php } else if (isset($_SESSION['gagalList'])) { ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= $_SESSION['gagalList'];
+                                unset($_SESSION['gagalList']); ?>
+                            </div>
+                        <?php } ?>
 
                                 <?php //if($delmsg){ 
                                 ?>
